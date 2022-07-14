@@ -1,7 +1,7 @@
 package ch02;
 
 public class EqualsTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException{
 		Student std1 = new Student(100, "송");
 		Student std2 = new Student(100, "송");
 		Student std3 = std1;
@@ -16,6 +16,10 @@ public class EqualsTest {
 		
 		System.out.println(System.identityHashCode(std1)); //실제 가상 메모리값 확인
 		System.out.println(System.identityHashCode(std2));
+		
+		std1.setStudentName("kim");
+		Student copyStudent = (Student)std1.clone();   //클론으로 생성함
+		System.out.println(copyStudent);
 		
 		String str1 = new String("abc");
 		String str2 = new String("abc");
